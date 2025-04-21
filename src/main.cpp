@@ -25,7 +25,7 @@ const int CELL_SIZE = 15 * scale;
 
 int grid[TOTAL_ROWS][TOTAL_COLUMNS];
 
-const int POSITION_OFFSET = 4;
+const int POSITION_OFFSET = 2 * scale;
 const int CELL_OFFSET = 2;
 
 bool isGamePaused;
@@ -525,34 +525,34 @@ void render()
 
     SDL_RenderCopy(renderer, scoreTextTexture, NULL, &scoreTextBounds);
 
-    SDL_Rect scorePlaceHolderRect = {315, 55, 170, 60};
+    SDL_Rect scorePlaceHolderRect = {157 * scale, 27 * scale, 85 * scale, 30 * scale};
     SDL_RenderFillRect(renderer, &scorePlaceHolderRect);
 
     updateTextureText(scoreTexture, std::to_string(score).c_str(), font, renderer);
 
     SDL_QueryTexture(scoreTexture, NULL, NULL, &scoreBounds.w, &scoreBounds.h);
-    scoreBounds.x = 365;
-    scoreBounds.y = 65;
+    scoreBounds.x = 182 * scale;
+    scoreBounds.y = 32 * scale;
     SDL_RenderCopy(renderer, scoreTexture, NULL, &scoreBounds);
 
     SDL_RenderCopy(renderer, nextTexture, NULL, &nextBounds);
 
-    SDL_Rect nextBlockPlaceHolderRect = {315, 215, 170, 180};
+    SDL_Rect nextBlockPlaceHolderRect = {157 * scale, 106 * scale, 85 * scale, 90 * scale};
     SDL_RenderFillRect(renderer, &nextBlockPlaceHolderRect);
 
     if (nextBlock.id == 3)
     {
-        drawBlock(nextBlock, 255, 290);
+        drawBlock(nextBlock, 127 * scale, 145 * scale);
     }
 
     else if (nextBlock.id == 4)
     {
-        drawBlock(nextBlock, 255, 280);
+        drawBlock(nextBlock, 127 * scale, 140 * scale);
     }
 
     else
     {
-        drawBlock(nextBlock, 275, 270);
+        drawBlock(nextBlock, 137 * scale, 135 * scale);
     }
 
     if (isGameOver)
@@ -572,7 +572,7 @@ void render()
 
 int main(int argc, char *args[])
 {
-    window = SDL_CreateWindow("My Window", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, TOTAL_COLUMNS * CELL_SIZE + 200, TOTAL_ROWS * CELL_SIZE + 4, SDL_WINDOW_SHOWN);
+    window = SDL_CreateWindow("My Window", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, TOTAL_COLUMNS * CELL_SIZE + 200, TOTAL_ROWS * CELL_SIZE + 2 * scale, SDL_WINDOW_SHOWN);
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
  
     if(startSDL(window, renderer) > 0) 
@@ -582,24 +582,24 @@ int main(int argc, char *args[])
     
     controller = SDL_GameControllerOpen(0);
   
-    font = TTF_OpenFont("monogram.ttf", 36);
+    font = TTF_OpenFont("monogram.ttf", 18 * scale);
 
     updateTextureText(scoreTexture, "0", font, renderer);
 
     updateTextureText(scoreTextTexture, "Score", font, renderer);
     SDL_QueryTexture(scoreTextTexture, NULL, NULL, &scoreTextBounds.w, &scoreTextBounds.h);
-    scoreTextBounds.x = 365;
-    scoreTextBounds.y = 15;
+    scoreTextBounds.x = 182 * scale;
+    scoreTextBounds.y = 7 * scale;
 
     updateTextureText(nextTexture, "Next", font, renderer);
     SDL_QueryTexture(nextTexture, NULL, NULL, &nextBounds.w, &nextBounds.h);
-    nextBounds.x = 370;
-    nextBounds.y = 175;
+    nextBounds.x = 185 * scale;
+    nextBounds.y = 88 * scale;
 
     updateTextureText(pauseTexture, "Game Paused", font, renderer);
     SDL_QueryTexture(pauseTexture, NULL, NULL, &pauseBounds.w, &pauseBounds.h);
-    pauseBounds.x = 330;
-    pauseBounds.y = 450;
+    pauseBounds.x = 165 * scale;
+    pauseBounds.y = 225 * scale;
 
     pauseSound = loadSound("okay.wav");
     music = loadMusic("music.mp3");
