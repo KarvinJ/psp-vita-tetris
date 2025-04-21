@@ -21,7 +21,7 @@ SDL_Rect pauseBounds;
 
 const int TOTAL_ROWS = 18;
 const int TOTAL_COLUMNS = 10;
-const int CELL_SIZE = 30;
+const int CELL_SIZE = 15 * scale;
 
 int grid[TOTAL_ROWS][TOTAL_COLUMNS];
 
