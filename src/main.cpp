@@ -602,10 +602,10 @@ int main(int argc, char *args[])
     pauseBounds.y = 225 * scale;
 
     pauseSound = loadSound("okay.wav");
-    music = loadMusic("music.mp3");
+    music = loadMusic("music.wav");
 
-    clearRowSound = loadSound("clear.mp3");
-    rotateSound = loadSound("rotate.mp3");
+    clearRowSound = loadSound("clear.wav");
+    rotateSound = loadSound("rotate.wav");
 
     Mix_PlayMusic(music, -1);
 

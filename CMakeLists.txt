@@ -38,15 +38,15 @@ elseif(VITA)
 		FILE platform/vita/sce_sys sce_sys
 		FILE res/fonts/monogram.ttf monogram.ttf
 		FILE res/sounds/okay.wav okay.wav
-		FILE res/sounds/clear.mp3 clear.mp3
-		FILE res/sounds/rotate.mp3 rotate.mp3
-		FILE res/music/music.mp3 music.mp3
+		FILE res/sounds/clear.wav clear.wav
+		FILE res/sounds/rotate.wav rotate.wav
+		FILE res/music/music.wav music.wav
 	)
 endif()
 
 file(COPY res/fonts/monogram.ttf DESTINATION ${CMAKE_BINARY_DIR})
 file(COPY res/sounds/okay.wav DESTINATION ${CMAKE_BINARY_DIR})
-file(COPY res/sounds/clear.mp3 DESTINATION ${CMAKE_BINARY_DIR})
-file(COPY res/sounds/rotate.mp3 DESTINATION ${CMAKE_BINARY_DIR})
-file(COPY res/music/music.mp3 DESTINATION ${CMAKE_BINARY_DIR})
+file(COPY res/sounds/clear.wav DESTINATION ${CMAKE_BINARY_DIR})
+file(COPY res/sounds/rotate.wav DESTINATION ${CMAKE_BINARY_DIR})
+file(COPY res/music/music.wav DESTINATION ${CMAKE_BINARY_DIR})
 
