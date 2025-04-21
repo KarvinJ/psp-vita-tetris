@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(complete-template)
+project(tetris)
 
 add_executable(${PROJECT_NAME} src/main.cpp src/sdl_starter.cpp src/sdl_assets_loader.cpp)
 
@@ -27,7 +27,7 @@ if(PLATFORM_PSP)
 		TITLE ${PROJECT_NAME}
 	)
 elseif(VITA)
-	set(VITA_TITLEID "INPUT0001") #title length == 9
+	set(VITA_TITLEID "TETRIS001") #title length == 9
 
 	include("$ENV{VITASDK}/share/vita.cmake" REQUIRED)
 
@@ -36,15 +36,17 @@ elseif(VITA)
 		VERSION "01.00"
 		NAME ${PROJECT_NAME}
 		FILE platform/vita/sce_sys sce_sys
-		FILE res/fonts/square_sans_serif_7.ttf square_sans_serif_7.ttf
-		FILE res/sounds/laser.wav laser.wav
-		FILE res/music/music.wav music.wav
-		FILE res/sprites/alien_1.png alien_1.png 
+		FILE res/fonts/monogram.ttf monogram.ttf
+		FILE res/sounds/okay.wav okay.wav
+		FILE res/sounds/clear.mp3 clear.mp3
+		FILE res/sounds/rotate.mp3 rotate.mp3
+		FILE res/music/music.mp3 music.mp3
 	)
 endif()
 
-file(COPY res/fonts/square_sans_serif_7.ttf DESTINATION ${CMAKE_BINARY_DIR})
-file(COPY res/sounds/laser.wav DESTINATION ${CMAKE_BINARY_DIR})
-file(COPY res/music/music.wav DESTINATION ${CMAKE_BINARY_DIR})
-file(COPY res/sprites/alien_1.png DESTINATION ${CMAKE_BINARY_DIR})
+file(COPY res/fonts/monogram.ttf DESTINATION ${CMAKE_BINARY_DIR})
+file(COPY res/sounds/okay.wav DESTINATION ${CMAKE_BINARY_DIR})
+file(COPY res/sounds/clear.mp3 DESTINATION ${CMAKE_BINARY_DIR})
+file(COPY res/sounds/rotate.mp3 DESTINATION ${CMAKE_BINARY_DIR})
+file(COPY res/music/music.mp3 DESTINATION ${CMAKE_BINARY_DIR})
 
